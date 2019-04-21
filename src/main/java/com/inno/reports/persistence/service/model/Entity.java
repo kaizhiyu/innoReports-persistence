@@ -34,6 +34,7 @@ public class Entity {
     private String Address;
     private List<String> Tags;
 
+    @JsonIgnore
     @Relationship(type = "BELONGS", direction = Relationship.INCOMING)
     private BelongsRelationship belongsRelationship;
 

@@ -2,9 +2,7 @@ package com.inno.reports.persistence.service.service.impl;
 
 import com.inno.reports.persistence.service.model.Entity;
 import com.inno.reports.persistence.service.model.EntityRequestDTO;
-import com.inno.reports.persistence.service.model.User;
 import com.inno.reports.persistence.service.repository.EntityRepository;
-import com.inno.reports.persistence.service.repository.UserRepository;
 import com.inno.reports.persistence.service.service.PersistenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +18,6 @@ import java.util.List;
 public class PersistenceServiceImpl implements PersistenceService {
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
     EntityRepository entityRepository;
 
    @Override
@@ -33,10 +28,6 @@ public class PersistenceServiceImpl implements PersistenceService {
         return list;
     }
 
-    @Override
-    public User findUserById(Long eid) {
-        return userRepository.findByUid(eid);
-    }
 
     @Override
     public Entity postNewEntity(EntityRequestDTO requestDTO) {
