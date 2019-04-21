@@ -1,5 +1,9 @@
 package com.inno.reports.persistence.service.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.neo4j.ogm.annotation.EndNode;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
@@ -12,7 +16,11 @@ import java.util.List;
 /**
  * Created by nethmih on 20.04.19.
  */
-@RelationshipEntity(type = "REPORT")
+@RelationshipEntity(type = "report")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class ReportRelationShip {
 
     @Id
@@ -26,7 +34,7 @@ public class ReportRelationShip {
     @EndNode
     private Report report;
 
-    public ReportRelationShip() {
+/*    public ReportRelationShip() {
     }
 
     public ReportRelationShip(User user, Report report) {
@@ -55,5 +63,5 @@ public class ReportRelationShip {
             this.reports = new ArrayList<>();
         }
         this.reports.add(name);
-    }
+    }*/
 }

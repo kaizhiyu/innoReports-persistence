@@ -14,6 +14,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "Entity", path = "Entity")
 public interface EntityRepository extends Neo4jRepository<Entity, Long> {
 
-    Entity findByEid(@Param("eid") Long eid);
+    Entity findByEId(@Param("eid") Long eid);
 }
 

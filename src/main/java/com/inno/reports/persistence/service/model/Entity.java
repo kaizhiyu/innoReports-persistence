@@ -1,10 +1,17 @@
 
 package com.inno.reports.persistence.service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
+
+import java.util.List;
 
 
 /**
@@ -12,21 +19,23 @@ import org.neo4j.ogm.annotation.Relationship;
  */
 
 @NodeEntity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Entity {
 
     @Id
     @GeneratedValue
-    private Long eid;
-    private String tag;
+    @JsonIgnore
+    private Long eId;
+    private String Name;
+    private String Email;
+    private String Address;
+    private List<String> Tags;
 
-    @Relationship(type = "BELONG", direction = Relationship.INCOMING)
-    private BelongRelationship belongRelationship;
+    @Relationship(type = "BELONGS", direction = Relationship.INCOMING)
+    private BelongsRelationship belongsRelationship;
 
-    public Entity() {
-    }
-
-    public Entity(String tag) {
-        this.tag = tag;
-    }
 }
 

@@ -1,5 +1,9 @@
 package com.inno.reports.persistence.service.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -13,16 +17,20 @@ import java.util.List;
  */
 
 @NodeEntity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class User {
     @Id
     @GeneratedValue
     private Long uid;
     private String Name;
 
-    @Relationship(type = "REPORT")
+    @Relationship(type = "report")
     private List<Report> reports = new ArrayList<>();
 
-    public User() {
+/*    public User() {
     }
 
     public User(String Name) {
@@ -39,5 +47,5 @@ public class User {
 
     public List<Report> getReports() {
         return reports;
-    }
+    }*/
 }
