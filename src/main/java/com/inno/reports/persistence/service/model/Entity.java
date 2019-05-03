@@ -27,10 +27,9 @@ public class Entity {
 
     @Id
     @GeneratedValue
-    @JsonIgnore
-    private Long eId;
-
     private Long id;
+
+    private Long eId;
     private String Name;
     private String Email;
     private String Address;
